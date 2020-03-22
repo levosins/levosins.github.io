@@ -60,7 +60,7 @@ $(function(){
       url: mockServerBaseURL + "/groups",
       data: groupData,
       success: function() {
-        print("Group created")
+        console.log("Group created")
       },
       dataType: "json",
       contentType: "application/json"
@@ -97,7 +97,7 @@ $(function(){
       url: mockServerBaseURL + "/profile",
       data: profileData,
       success: function() {
-        print("Created Profile")
+        console.log("Created Profile")
       },
       dataType: "json",
       contentType: "application/json"
@@ -113,7 +113,7 @@ $(function(){
       url: mockServerBaseURL + "/groups/code",
       data: groupCodeData,
       success: function() {
-        print("Created GroupCode")
+        console.log("Created GroupCode")
       },
       dataType: "json",
       contentType: "application/json"
@@ -149,7 +149,7 @@ $(function(){
     url: mockServerBaseURL + "/plan-eligibility",
     data: planEligibilityData,
     success: function() {
-      print("Created Plan Eligibility")
+      console.log("Created Plan Eligibility")
     },
     dataType: "json",
     contentType: "application/json"
