@@ -195,7 +195,7 @@ $(function(){
 
   function createAccountNumber() {
     var accountNumber = Math.random() * 10000000000;
-    return Math.floor(accountNumber);
+    return Math.floor(accountNumber).toString();
   }
 
 });
