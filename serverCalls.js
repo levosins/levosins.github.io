@@ -4,7 +4,9 @@ $(function(){
   var accountNumber = createAccountNumber();
   var deviceId = createCurrentDeviceId();
   var subscriberId = createSubscriberId();
-  var mockServerBaseURL = "https://cryptic-forest-60044.herokuapp.com/guardian/dev/api/v1";
+  var localHostURL = "http://localhost:8080"
+  var herokuBaseURL = "https://cryptic-forest-60044.herokuapp.com"
+  var mockServerBaseURL = localHostURL + "/guardian/dev/api/v1";
 
   var groupName,
     firstName,
