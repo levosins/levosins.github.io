@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DL Mock Server</title>
+  <meta name="description" content="The Mock Server form">
+  <link rel="stylesheet" href="mockServer.css?v=1.0">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="serverCalls.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <h1>DL Mock Server</h1>
+  </div>
+  <div class="row">
+      <div class='column'>
+        <form class="createGroupForm" action="/action_page.php">
+          <h2>Create group</h2>
+          <input type="text" id="groupName" name="groupName" placeholder="Enter Group Name">
+
+          <h2>Create group owner</h2>
+          <input type="text" id="ownerFirstName" name="ownerFirstName" placeholder="First Name">
+          <input type="text" id="ownerLastName" name="ownerLastName" placeholder="Last Name">
+          <input type="text" id="ownerPhone" name="ownerPhone" placeholder="Phone (no dashes just numbers)">
+          <input type="text" id="ownerEmail" name="ownerEmail" placeholder="Email">
+
+          <input class="submit" type="submit" value="Submit">
+        </form>
+      </div>
+      <div class='column'>
+        <div class="existingGroups">
+          <h2>Existing Groups: TBD</h2>
+
+          <ul>
+            <li>fdfd</li>
+          </ul>
+
+        </div>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>
