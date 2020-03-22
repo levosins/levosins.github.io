@@ -61,11 +61,12 @@ $(function(){
       type: "POST",
       url: mockServerBaseURL + "/groups",
       data: groupData,
-      success: function() {
-        console.log("Group created")
-      },
       dataType: "json",
       contentType: "application/json"
+    }).done(function(data) {
+      console.log("Created Group");
+    }).fail(function(jqXHR, textStatus) {
+      alert(textStatus);
     });
   }
 
@@ -92,17 +93,18 @@ $(function(){
       imageUrl: null
     };
 
-    var profileData = JSON.stringify(profile)
+    var profileData = JSON.stringify(profile);
 
     return $.ajax({
       type: "POST",
       url: mockServerBaseURL + "/profile",
       data: profileData,
-      success: function() {
-        console.log("Created Profile")
-      },
       dataType: "json",
       contentType: "application/json"
+    }).done(function(data) {
+      console.log("Created Profile");
+    }).fail(function(jqXHR, textStatus) {
+      alert(textStatus);
     });
   }
 
@@ -114,11 +116,12 @@ $(function(){
       type: "POST",
       url: mockServerBaseURL + "/groups/code",
       data: groupCodeData,
-      success: function() {
-        console.log("Created GroupCode")
-      },
       dataType: "json",
       contentType: "application/json"
+    }).done(function(data) {
+      console.log("Created GroupCode");
+    }).fail(function(jqXHR, textStatus) {
+      alert(textStatus);
     });
   }
 
@@ -127,35 +130,41 @@ $(function(){
     var vin = createVin();
 
     var planEligibility = {
-      userGuid: userGuid,
-      status: "SUBSCRIBED",
-      accountNo: accountNumber,
-      vin: vin,
-      offerId: offerId,
-      details: {
-        duration: {
-          span: 3,
-          measure: "MONTH"
-        },
-        pricing: {
-          price: 5,
-          currency: "USD"
+        userGuid: userGuid,
+        status: "SUBSCRIBED",
+        accountNo: accountNumber,
+        vin: vin,
+        offerId: offerId,
+        details: {
+          duration: {
+            span: 3,
+            measure: "MONTH"
+          },
+          pricing: {
+            price: 5,
+            currency: "USD"
+          }
         }
-      }
-  };
+    };
 
-  var planEligibilityData = JSON.stringify(planEligibility);
+    var planEligibilityData = JSON.stringify(planEligibility);
 
-  return $.ajax({
-    type: "POST",
-    url: mockServerBaseURL + "/plan-eligibility",
-    data: planEligibilityData,
-    success: function() {
-      console.log("Created Plan Eligibility")
-    },
-    dataType: "json",
-    contentType: "application/json"
+    return $.ajax({
+      type: "POST",
+      url: mockServerBaseURL + "/plan-eligibility",
+      data: planEligibilityData,
+      dataType: "json",
+      contentType: "application/json"
+    }).done(function (data) {
+      console.log("Created Plan Eligibility");
+      successAlert();
+    }).fail(function (jqXHR, textStatus) {
+      alert(textStatus);
     });
+  }
+
+  function successAlert() {
+    alert("Success! Your new group with an OWNER has been created!");
   }
 
   function makeid(length) {
