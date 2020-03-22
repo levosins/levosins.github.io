@@ -6,7 +6,7 @@ $(function(){
   var subscriberId = createSubscriberId();
   var localHostURL = "http://localhost:8080"
   var herokuBaseURL = "https://cryptic-forest-60044.herokuapp.com"
-  var mockServerBaseURL = localHostURL + "/guardian/dev/api/v1";
+  var mockServerBaseURL = herokuBaseURL + "/guardian/dev/api/v1";
 
   var groupName,
     firstName,
