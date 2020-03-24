@@ -16,6 +16,15 @@
     <h1>Create a new group with group owner</h1>
   </div>
   <div class="row">
+    <label for="environment">Pick the current development environment:</label>
+
+    <select id="environment">
+      <option value="mocks">Mock Server</option>
+      <option value="dev">Dev</option>
+      <option value="test">Test</option>
+    </select>
+  </div>
+  <div class="row">
       <div class='column'>
         <form class="createGroupForm" action="/action_page.php">
           <input type="text" id="groupName" name="groupName" placeholder="Group Name">
