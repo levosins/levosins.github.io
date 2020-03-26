@@ -4,7 +4,7 @@ $(function(){
   var accountNumber = createAccountNumber();
   var deviceId = createCurrentDeviceId();
   var subscriberId = createSubscriberId();
-  var localHostURL = "http://localhost:8080"
+  var localHostURL = "http://192.168.1.8:8080"
   var herokuBaseURL = "https://cryptic-forest-60044.herokuapp.com"
   var currentEnvironment = "test"
   var mockServerBaseURL = localHostURL + "/guardian/" + currentEnvironment + "/api/v1";
