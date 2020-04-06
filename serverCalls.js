@@ -1,13 +1,9 @@
 $(function(){
   var groupInviteCode = createGroupInviteCode();
   var userGuid = createUserGuid();
-  var accountNumber = createAccountNumber();
-  var deviceId = createCurrentDeviceId();
-  var subscriberId = createSubscriberId();
-  var localHostURL = "http://192.168.1.8:8080"
   var herokuBaseURL = "https://cryptic-forest-60044.herokuapp.com"
   var currentEnvironment = "test"
-  var mockServerBaseURL = localHostURL + "/guardian/" + currentEnvironment + "/api/v1";
+  var mockServerBaseURL = herokuBaseURL + "/guardian/" + currentEnvironment + "/api/v1";
 
   var groupName,
     firstName,
@@ -76,22 +72,20 @@ $(function(){
 
     var profile = {
       guid: userGuid,
+      role: "OWNER",
       firstName: firstName,
       lastName: lastName,
-      role: "OWNER",
       email: ownerEmail,
       emailVerified: true,
       phone: phone,
       phoneVerified: true,
-      accountNumber: accountNumber,
-      subscriberId: subscriberId,
-      currentDeviceId: deviceId,
       deviceOnboarded: true,
-      termsAcceptedDate: timestampToday,
       termsAcceptedVersionCode: 2,
-      privacyAcceptedDate: timestampToday,
       privacyAcceptedVersionCode: 1,
-      imageUrl: null
+      currentDeviceId: "",
+      imageUrl: null,
+      safetyServicesStatus: null,
+      locationSharingStatus: null
     };
 
     var profileData = JSON.stringify(profile);
@@ -127,25 +121,13 @@ $(function(){
   }
 
   function createPlanEligibility(data, textStatus, jqXHR) {
-    var offerId = createOfferId();
-    var vin = createVin();
 
     var planEligibility = {
         userGuid: userGuid,
         status: "SUBSCRIBED",
-        accountNo: accountNumber,
-        vin: vin,
-        offerId: offerId,
-        details: {
-          duration: {
-            span: 3,
-            measure: "MONTH"
-          },
-          pricing: {
-            price: 5,
-            currency: "USD"
-          }
-        }
+        reason: null,
+        vin: null,
+        offer: null
     };
 
     var planEligibilityData = JSON.stringify(planEligibility);
@@ -185,27 +167,6 @@ $(function(){
 
   function createGroupInviteCode() {
     return makeid(6);
-  }
-
-  function createVin() {
-    return makeid(17);
-  }
-
-  function createCurrentDeviceId() {
-    return makeid(41)
-  }
-
-  function createOfferId() {
-    return makeid(13);
-  }
-
-  function createSubscriberId() {
-    return makeid(24);
-  }
-
-  function createAccountNumber() {
-    var accountNumber = Math.random() * 10000000000;
-    return Math.floor(accountNumber).toString();
   }
 
 });
