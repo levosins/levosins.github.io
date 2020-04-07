@@ -4,6 +4,7 @@ $(function(){
   var herokuBaseURL = "https://cryptic-forest-60044.herokuapp.com"
   var currentEnvironment = "test"
   var mockServerBaseURL = herokuBaseURL + "/guardian/" + currentEnvironment + "/api/v1";
+  var overlay = $(".overlay");
 
   var groupName,
     firstName,
@@ -14,6 +15,7 @@ $(function(){
   $(".submit").click(function(event) {
     event.preventDefault();
 
+    overlay.show();
     setGlobalValues();
     createAllNeededGroupInfo();
   });
@@ -63,6 +65,7 @@ $(function(){
     }).done(function(data) {
       console.log("Created Group");
     }).fail(function(jqXHR, textStatus) {
+      overlay.hide();
       alert(textStatus);
     });
   }
@@ -99,6 +102,7 @@ $(function(){
     }).done(function(data) {
       console.log("Created Profile");
     }).fail(function(jqXHR, textStatus) {
+      overlay.hide();
       alert(textStatus);
     });
   }
@@ -116,6 +120,7 @@ $(function(){
     }).done(function(data) {
       console.log("Created GroupCode");
     }).fail(function(jqXHR, textStatus) {
+      overlay.hide();
       alert(textStatus);
     });
   }
@@ -140,8 +145,10 @@ $(function(){
       contentType: "application/json"
     }).done(function (data) {
       console.log("Created Plan Eligibility");
+      overlay.hide();
       successAlert();
     }).fail(function (jqXHR, textStatus) {
+      overlay.hide();
       alert(textStatus);
     });
   }
