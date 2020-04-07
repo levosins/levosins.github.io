@@ -1,9 +1,10 @@
 $(function(){
   var groupInviteCode = createGroupInviteCode();
   var userGuid = createUserGuid();
+  var localHostURL = "http://192.168.1.6:8080"
   var herokuBaseURL = "https://cryptic-forest-60044.herokuapp.com"
   var currentEnvironment = "test"
-  var mockServerBaseURL = herokuBaseURL + "/guardian/" + currentEnvironment + "/api/v1";
+  var mockServerBaseURL = localHostURL + "/guardian/" + currentEnvironment + "/api/v1";
   var overlay = $(".overlay");
 
   var groupName,
@@ -71,8 +72,6 @@ $(function(){
   }
 
   function createProfile(data, textStatus, jqXHR) {
-    var timestampToday = Math.round((new Date()).getTime() / 1000);
-
     var profile = {
       guid: userGuid,
       role: "OWNER",
@@ -85,7 +84,7 @@ $(function(){
       deviceOnboarded: true,
       termsAcceptedVersionCode: 2,
       privacyAcceptedVersionCode: 1,
-      currentDeviceId: "",
+      currentDeviceId: "123",
       imageUrl: null,
       safetyServicesStatus: null,
       locationSharingStatus: null
